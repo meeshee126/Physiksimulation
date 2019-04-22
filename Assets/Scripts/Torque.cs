@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushObject : MonoBehaviour
+public class Torque : MonoBehaviour
 {
     Rigidbody m_rb;
-
-    [SerializeField]
-    float m_momentumPower;
+    public float speed;
 
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
     }
 
-    public void Push()
+    // Update is called once per frame
+    void Update()
     {
-        m_rb.AddForce(Vector3.right * m_momentumPower, ForceMode.Impulse);
+        m_rb.AddTorque(transform.position * speed, ForceMode.Impulse);
     }
 }

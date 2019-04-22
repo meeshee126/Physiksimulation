@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class ExplosionTrigger : MonoBehaviour
 {
-    ExplosionObject m_eObject;
+    Physic m_eObject;
 
     private void Start()
     {
-        m_eObject = GameObject.Find("ExplosionObject").GetComponent<ExplosionObject>();
+        m_eObject = GameObject.Find("ExplosionObject").GetComponent<Physic>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Ball")
         {
-            Debug.Log("sdd");
-            m_eObject.Push();
+            m_eObject.InvokeExplosion();
+            Destroy(this.gameObject);
         }
     }
 }

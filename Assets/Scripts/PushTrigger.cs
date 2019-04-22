@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PushTrigger : MonoBehaviour
 {
-    PushObject m_pObject;
+    Physic m_pObject;
 
     private void Start()
     {
-        m_pObject = GameObject.Find("PushObject").GetComponent<PushObject>();
+        m_pObject = GameObject.Find("PushObject").GetComponent<Physic>();
     }
 
     private void OnTriggerEnter(Collider other)
