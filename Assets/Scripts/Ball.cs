@@ -16,9 +16,9 @@ public class Ball : MonoBehaviour
         m_rb = GetComponent<Rigidbody>();
     }
 
-
     void FixedUpdate()
     {
+        // moving ball when controls are enabled
         if (m_controlsEnabled)
         {
             Movement();
@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
+        // control the ball using torsion / torque
         m_rb.AddTorque(new Vector3(moveX, 0, moveZ) * m_ballSpeed * Time.deltaTime);
     }
 }
